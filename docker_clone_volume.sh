@@ -9,13 +9,13 @@
 #First check if the user provided all needed arguments
 if [ "$1" = "" ]
 then
-        echo "PLease provide a source volume name"
+        echo "Please provide a source volume name"
         exit
 fi
 
 if [ "$2" = "" ] 
 then
-        echo "PLease provide a destination volume name"
+        echo "Please provide a destination volume name"
         exit
 fi
 
