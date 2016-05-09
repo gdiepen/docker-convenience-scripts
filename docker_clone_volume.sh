@@ -45,6 +45,6 @@ echo "Copying data from source volume \"$1\" to destination volume \"$2\"..."
 docker run --rm \
            -i \
            -t \
-           -v $2:/from \
-           -v $1:/to \
+           -v $1:/from \
+           -v $2:/to \
            alpine ash -c "cd /to ; cp -a /from/* ."
