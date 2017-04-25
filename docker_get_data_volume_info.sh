@@ -17,7 +17,7 @@ do
 	if (( $num_related_containers > 0 )) 
 	then
 		echo "        Connected containers:"
-		docker ps -a --filter=volume=${docker_volume_id} --format "{{.Names}} ({{.Status}})" | while read containerDetails
+		docker ps -a --filter=volume=${docker_volume_id} --format "{{.Names}} [{{.Image}}] ({{.Status}})" | while read containerDetails
 		do
 			echo "            ${containerDetails}"
 		done
