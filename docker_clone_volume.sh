@@ -47,4 +47,4 @@ docker run --rm \
            -t \
            -v $1:/from \
            -v $2:/to \
-           alpine ash -c "cd /to ; cp -a /from/* ."
+           alpine ash -c "cd /to ; cp -a /from/* /from/.* ."
