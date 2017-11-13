@@ -11,7 +11,7 @@ do
 	
 	#Obtain the size of the data volume by starting a docker container
 	#that uses this data volume and determines the size of this data volume	
-	docker_volume_size=$(docker run --rm -t -v ${docker_volume_id}:/volume_data ubuntu bash -c "du -hs /volume_data | cut -f1" ) 
+	docker_volume_size=$(docker run --rm -t -v ${docker_volume_id}:/volume_data alpine sh -c "du -hs /volume_data | cut -f1" ) 
 
 	echo "    Size: ${docker_volume_size}"
 	
