@@ -11,6 +11,10 @@ to ensure I have the latest production data also at development.
 
 You can find more details in my blog post [Cloning Docker Data Volumes](https://www.guidodiepen.nl/2016/05/cloning-docker-data-volumes/)
 
+## docker_gzip_volume.sh
+
+The purpose for this script is that I can easily gzip a volume so that it can be backed up and restored on the same or different host.
+
 ## docker_get_data_volume_info.sh
 
 The purpose for this script is that I can easily get a list of details for all data volumes 
