@@ -29,3 +29,6 @@ When building the same docker images multiple times, it is easy to leave a lot o
 without tags, especially when using `<latest>` tags. These eat up precious space in the
 hard drive and have little benefit. The convenience script executes the `docker rmi` command for all
 images with no tags assigned.
+
+## License
+The contents of this repository are covered under the [MIT License](LICENSE.md)
