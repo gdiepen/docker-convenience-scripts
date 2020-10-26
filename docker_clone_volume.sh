@@ -13,7 +13,7 @@ then
         exit
 fi
 
-if [ "$2" = "" ] 
+if [ "$2" = "" ]
 then
         echo "Please provide a destination volume name"
         exit
@@ -40,11 +40,11 @@ fi
 
 
 echo "Creating destination volume \"$2\"..."
-docker volume create --name $2  
+docker volume create --name $2
 echo "Copying data from source volume \"$1\" to destination volume \"$2\"..."
 docker run --rm \
            -i \
            -t \
            -v $1:/from \
            -v $2:/to \
-           alpine ash -c "cd /from ; cp -av . /to"
+           alpine ash -c "cd /from && tar cf - . | (cd /to && tar xvf -)"
