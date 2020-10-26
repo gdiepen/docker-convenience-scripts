@@ -21,3 +21,14 @@ The script allows me to easily see if there are some data volumes on my disk tha
 up a lot of space and are not needed anymore.
 
 You can find more details in my blog post [Listing information for all your named/unnamed data volumes](https://www.guidodiepen.nl/2017/04/listing-information-for-all-your-named-unnamed-data-volumes/)
+
+## docker_remove_untagged_img.sh
+
+The purpose for this script is to remove all untagged images from the docker local registry.
+When building the same docker images multiple times, it is easy to leave a lot of them behind
+without tags, especially when using `<latest>` tags. These eat up precious space in the
+hard drive and have little benefit. The convenience script executes the `docker rmi` command for all
+images with no tags assigned.
+
+## License
+The contents of this repository are covered under the [MIT License](LICENSE.md)
