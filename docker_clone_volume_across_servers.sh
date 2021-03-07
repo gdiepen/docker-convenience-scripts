@@ -40,16 +40,6 @@ then
         exit
 fi
 
-# todo? or not needed, cauz it will just be replaced?
-#Now check if the destinatin volume name does not yet exist
-# docker volume inspect $2 > /dev/null 2>&1
-#
-# if [ "$?" = "0" ]
-# then
-#         echo "The destination volume \"$2\" already exists"
-#         exit
-# fi
-
 docker run --rm \
            -v $1:/from alpine ash -c \
            "cd /from ; tar -czf - . " | \
