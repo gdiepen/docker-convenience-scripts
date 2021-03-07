@@ -1,12 +1,12 @@
 #!/bin/bash
 
-#Author: Guido Diepen
+# The script repeates docker_clone_volume.sh
+# Thanks to maddin25 who provides solution in
+# https://stackoverflow.com/questions/42973347/how-to-copy-docker-volume-from-one-machine-to-another
 
-#Convenience script that can help me to easily create a clone of a given
-#data volume. The script is mainly useful if you are using named volumes
-
-# On both hosts you should have running docker diemon
-# and have access to root obviously.
+# The script is mainly useful if you are using named volumes and
+# on both hosts you should have running docker diemon
+# and have access to root, obviously.
 
 # arg: $1: source volume name
 # arg: $2: target host
@@ -52,6 +52,6 @@ fi
 
 docker run --rm \
            -v $1:/from alpine ash -c \
-           "cd /from ; tar -cf - . " | \
+           "cd /from ; tar -cfz - . " | \
            ssh $2 \
-           "docker run --rm -i -v \"$3\":/to alpine ash -c 'cd /to ; tar -xpvf - '"
+           "docker run --rm -i -v \"$3\":/to alpine ash -c 'cd /to ; tar -xpvfz - '"
