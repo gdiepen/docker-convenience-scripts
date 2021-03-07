@@ -6,16 +6,30 @@ This repository will contain different convenience scripts for docker I have gat
 
 The purpose for this script is that I can easily create a clone of an existing docker data with
 a new name. This will allow me to create a duplicate of an existing data volume I use in the
-production environment of my blog for example and take that duplicate to my development version 
+production environment of my blog for example and take that duplicate to my development version
 to ensure I have the latest production data also at development.
 
 You can find more details in my blog post [Cloning Docker Data Volumes](https://www.guidodiepen.nl/2016/05/cloning-docker-data-volumes/)
 
+## docker_clone_volume_across_servers.sh
+
+The script relates to the above one, in addition, it adds the possibility to transfer named volume from one host machine to another.
+
+It is worth noting, that :
+* you should have running docker daemon and have ssh available on both hosts;
+* you ought to have access to root;
+* you might want be ensured that your destination containers are stopped before copying the volume.
+
+Refer to [stackoverflow topic](https://stackoverflow.com/questions/42973347/how-to-copy-docker-volume-from-one-machine-to-another).
+
+### to do
+check if target volume has already existed (or not needed, cauz user merely should understand circumstances)
+
 ## docker_get_data_volume_info.sh
 
-The purpose for this script is that I can easily get a list of details for all data volumes 
-that are currently present. The information that is provided to the user as output is per 
-data volume the current size of the data volume and a list of stopped or running containers 
+The purpose of this script is that I can easily get a list of details for all data volumes
+that are currently present. The information that is provided to the user as output is per
+data volume the current size of the data volume and a list of stopped or running containers
 that have a link to this data volume, including the image corresponding to the container.
 The script allows me to easily see if there are some data volumes on my disk that are taking
 up a lot of space and are not needed anymore.
