@@ -50,8 +50,4 @@ fi
 #         exit
 # fi
 
-docker run --rm \
-           -v $1:/from alpine ash -c \
-           "cd /from ; tar -cf - . " | \
-           ssh $2 \
-           'docker run --rm -i -v $3:/to alpine ash -c "cd /to ; tar -xpvf - "'
+docker run --rm -v dockers_redis_data:/from alpine ash -c "cd /from ; tar -cf - . " | ssh nnn 'docker run --rm -i -v dockers_redis_data:/to alpine ash -c "cd /to ; tar -xpvf - "'
