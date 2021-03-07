@@ -54,4 +54,4 @@ docker run --rm \
            -v $1:/from alpine ash -c \
            "cd /from ; tar -cf - . " | \
            ssh $2 \
-           'docker run --rm -i -v \"$3\":/to alpine ash -c "cd /to ; tar -xpvf - "'
+           "docker run --rm -i -v \"$3\":/to alpine ash -c 'cd /to ; tar -xpvf - '"
