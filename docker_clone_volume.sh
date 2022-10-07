@@ -40,7 +40,7 @@ fi
 
 
 echo "Creating destination volume \"$2\"..."
-docker volume create --name $2  
+docker volume create --name $2 $(docker volume inspect $1 --format '{{range $k,$v:=.Labels}}--label {{$k}}={{$v}} {{end}}')
 echo "Copying data from source volume \"$1\" to destination volume \"$2\"..."
 docker run --rm \
            -i \
